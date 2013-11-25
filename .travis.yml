@@ -1,5 +1,11 @@
-language: perl
-before_install:
- - sudo apt-get install -qq unixodbc unixodbc-dev
+language: "perl"
 perl:
   - "5.10"
+before_install:
+    - sudo apt-get install libgmp-dev
+    - cpanm Test::Pod # optional dependency
+
+install:
+    - cpanm -v --installdeps --notest --mirror http://cpan.mirrors.travis-ci.org .
+
+script: "perl helloworld2.pl; ./Build test"
