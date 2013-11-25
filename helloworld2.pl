@@ -8,3 +8,4 @@
 
   # Print a message.
   print "Hello, World!\n
+  return 0
